@@ -24,4 +24,3 @@
       <TextField fx:id="lastNameField" layoutX="323.0" layoutY="87.0" promptText="Soyisim" />
    </children>
 </AnchorPane>
-

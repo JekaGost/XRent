@@ -22,7 +22,6 @@ import javafx.scene.control.TextField;
 
 public class RegisterPageController {
 
-
     @FXML
     private TextField emailField;
     @FXML

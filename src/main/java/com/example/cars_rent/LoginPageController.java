@@ -52,7 +52,6 @@ public class LoginPageController {
         }
     }
 
-
             /*FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-main-page.fxml"));
             Scene secondScene = new Scene(loader.load());
 

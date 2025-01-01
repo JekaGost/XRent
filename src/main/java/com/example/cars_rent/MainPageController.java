@@ -13,7 +13,6 @@ public class MainPageController {
     private Label welcomeText;
 
 
-
     @FXML
     private void onLoginButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
