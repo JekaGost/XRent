@@ -10,4 +10,5 @@ public class UserSession {
     public static void setIsAdmin(boolean isAdmin) {
         UserSession.isAdmin = isAdmin;
     }
+
 }

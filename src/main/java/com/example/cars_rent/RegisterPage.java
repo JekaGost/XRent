@@ -15,3 +15,4 @@ public class RegisterPage {
         stage.show();
     }
 }
+

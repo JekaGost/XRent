@@ -22,3 +22,4 @@
 <Button fx:id="register" layoutX="508.0" layoutY="332.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" text="Kayıt Ol" />
 </children>
         </AnchorPane>
+
