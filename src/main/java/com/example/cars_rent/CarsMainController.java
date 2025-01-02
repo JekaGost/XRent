@@ -38,14 +38,14 @@ public class CarsMainController {
         }
     } */
 
-    private void loadCars(Boolean onlyAvailable) {
+    /*private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
         CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
-    }
+    }*/
 
     @FXML
     public void initialize() {

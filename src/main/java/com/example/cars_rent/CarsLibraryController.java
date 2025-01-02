@@ -22,29 +22,56 @@ public class CarsLibraryController {
 
     @FXML
     public void showAvailableCars() {
-        loadCars(true);
+        loadAvailableCars();
     }
 
     @FXML
     public void showOccupiedCars() {
-        loadCars(false);
+        loadOccupiedCars();
     }
 
     @FXML
     public void showAllCars() {
-        loadCars(null);
+        loadAllCars();
     }
 
 
 
-    private void loadCars(Boolean onlyAvailable) {
+    private void loadAvailableCars() {
+        carListContainer.getChildren().clear();
+        CarService.getCars(true).forEach(car -> {
+            Button carButton = new Button(car.getBrand() + " " + car.getModel());
+            carButton.setOnAction(event -> openCarDetails(car));
+            carListContainer.getChildren().add(carButton);
+        });
+    }
+
+    private void loadOccupiedCars() {
+        carListContainer.getChildren().clear();
+        CarService.getCars(false).forEach(car -> {
+            Button carButton = new Button(car.getBrand() + " " + car.getModel());
+            carButton.setOnAction(event -> openCarDetails(car));
+            carListContainer.getChildren().add(carButton);
+        });
+    }
+
+    private void loadAllCars() {
+        carListContainer.getChildren().clear();
+        CarService.getCars(true && false).forEach(car -> {
+            Button carButton = new Button(car.getBrand() + " " + car.getModel());
+            carButton.setOnAction(event -> openCarDetails(car));
+            carListContainer.getChildren().add(carButton);
+        });
+    }
+
+    /*private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
         CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
-    }
+    }*/
 
     private void openCarDetails(Car car) {
 
