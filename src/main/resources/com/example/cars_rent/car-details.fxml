@@ -24,7 +24,7 @@
         <Label fx:id="electricRangeLabel" layoutX="20.0" layoutY="320.0" text="Запас хода на электричестве: " visible="false" />
         <Label fx:id="statusLabel" layoutX="20.0" layoutY="350.0" text="Статус: " />
         <Rectangle fx:id="statusIndicator" height="20.0" layoutX="133.0" layoutY="348.0" stroke="BLACK" width="20.0" />
-        <Button fx:id="reserveButton" layoutX="450.0" layoutY="350.0" mnemonicParsing="false" text="Зарезервировать" />
-        <Button fx:id="backButton" layoutX="388.0" layoutY="350.0" mnemonicParsing="false" text="Назад" />
+        <Button fx:id="reserveButton" layoutX="450.0" layoutY="350.0" mnemonicParsing="false" onAction="#onReserveButtonClick" text="Зарезервировать" />
+        <Button fx:id="backButton" layoutX="388.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Назад" />
     </children>
 </AnchorPane>

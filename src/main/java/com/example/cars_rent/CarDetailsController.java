@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class CarDetailsController {
     @FXML
@@ -35,6 +36,7 @@ public class CarDetailsController {
     private Button reserveButton;
     @FXML
     private Button backButton;
+
 
     private Car currentCar;
 
@@ -74,6 +76,8 @@ public class CarDetailsController {
 
     @FXML
     private void onBackButtonClick() {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
         // Логика возврата к предыдущему экрану
     }
 }
