@@ -15,9 +15,9 @@ import javafx.scene.control.Label;
 public class CarsMainController {
 
     @FXML
-    private GridPane carListContainer;
+    private VBox carListContainer;
 
-    private void loadCars(Boolean onlyAvailable) {
+    /*private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
         List<Car> cars = CarService.getCars(onlyAvailable != null && onlyAvailable);
 
@@ -36,16 +36,16 @@ public class CarsMainController {
                 row++;
             }
         }
-    }
+    } */
 
-    /*private void loadCars(Boolean onlyAvailable) {
+    private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
         CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
-    } */
+    }
 
     @FXML
     public void initialize() {
