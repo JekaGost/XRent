@@ -8,6 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 
 import javafx.scene.control.Label;
 
@@ -18,12 +19,33 @@ public class CarsMainController {
 
     private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
+        List<Car> cars = CarService.getCars(onlyAvailable != null && onlyAvailable);
+
+        int columns = 6;
+        int row = 0;
+        int column = 0;
+
+        for (Car car : cars) {
+            Button carButton = new Button(car.getBrand() + " " + car.getModel());
+            carButton.setPrefWidth(120);
+            carButton.setOnAction(event -> openCarDetails(car));
+            carListContainer.add(carButton, column++, row);
+
+            if (column == columns) {
+                column = 0;
+                row++;
+            }
+        }
+    }
+
+    /*private void loadCars(Boolean onlyAvailable) {
+        carListContainer.getChildren().clear();
         CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
-    }
+    } */
 
     @FXML
     public void initialize() {
