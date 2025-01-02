@@ -18,8 +18,23 @@ public class CarsLibraryController {
     @FXML
     private AnchorPane carListContainer;
 
+    @FXML
+    public void showAvailableCars() {
+        loadCars(true);
+    }
+
+    @FXML
+    public void showOccupiedCars() {
+        loadCars(false);
+    }
+
+    @FXML
+    public void showAllCars() {
+        loadCars(null);
+    }
 
 
+    /*
     @FXML
     public void showAvailableCars() {
         loadAvailableCars();
@@ -64,14 +79,16 @@ public class CarsLibraryController {
         });
     }
 
-    /*private void loadCars(Boolean onlyAvailable) {
+    */
+
+    private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
         CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
-    }*/
+    }
 
     private void openCarDetails(Car car) {
 
