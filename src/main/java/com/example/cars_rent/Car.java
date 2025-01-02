@@ -15,6 +15,8 @@ public class Car {
     private Integer electricRange;
     private boolean status;
 
+    public Car() {}
+
     public Car(int id, String brand, String model, String transmission, double engineCapacity, String fuelType, int horsepower,
                String driveType, double acceleration, String engineType, double fuelConsumption, Integer electricRange, boolean status) {
         this.id = id;
