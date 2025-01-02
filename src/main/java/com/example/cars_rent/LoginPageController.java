@@ -2,6 +2,7 @@ package com.example.cars_rent;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class LoginPageController {
                     UserSession.isAdmin() ? "cars-library-page.fxml" : "cars-main-page.fxml"
             ));
 
-            Scene nextScene = new Scene(loader.load());
+            Scene nextScene = new Scene(loader.load(),880, 900);
             Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
             stage.setScene(nextScene);
 
