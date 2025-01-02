@@ -44,7 +44,7 @@ public class LoginPageController {
                     UserSession.isAdmin() ? "cars-library-page.fxml" : "cars-main-page.fxml"
             ));
 
-            Scene nextScene = new Scene(loader.load(),880, 900);
+            Scene nextScene = new Scene(loader.load(),940, 900);
             Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
             stage.setScene(nextScene);
 
