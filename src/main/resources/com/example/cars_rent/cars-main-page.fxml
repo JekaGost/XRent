@@ -7,7 +7,10 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox fx:id="carListContainer" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.CarsMainController">
+<?import javafx.scene.layout.GridPane?>
+
+
+<GridPane fx:id="carListContainer" alignment="CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.CarsMainController">
    <children>
       <AnchorPane prefHeight="671.0" prefWidth="1120.0">
          <children>
@@ -24,4 +27,4 @@
          </children>
       </AnchorPane>
    </children>
-</VBox>
+</GridPane>
