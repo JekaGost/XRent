@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -13,8 +14,11 @@ import javafx.scene.control.Label;
 
 public class CarsLibraryController {
 
+
     @FXML
-    private VBox carListContainer;
+    private AnchorPane carListContainer;
+
+
 
     @FXML
     public void showAvailableCars() {
@@ -30,6 +34,8 @@ public class CarsLibraryController {
     public void showAllCars() {
         loadCars(null);
     }
+
+
 
     private void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();

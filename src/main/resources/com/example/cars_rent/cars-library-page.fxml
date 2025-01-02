@@ -12,9 +12,9 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="all_cars_button" layoutX="610.0" layoutY="163.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="165.0" text="Tüm Araçları Göster" />
-      <Button fx:id="dolu_cars_button" layoutX="427.0" layoutY="163.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="165.0" text="Dolu Araçları Göster" />
-      <Button fx:id="serbest_cars_button" layoutX="247.0" layoutY="163.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="165.0" text="Boş Araçları Göster" />
+      <Button fx:id="all_cars_button" layoutX="610.0" layoutY="163.0" mnemonicParsing="false" onAction="#showAllCars" prefHeight="109.0" prefWidth="165.0" text="Tüm Araçları Göster" />
+      <Button fx:id="dolu_cars_button" layoutX="427.0" layoutY="163.0" mnemonicParsing="false" onAction="#showOccupiedCars" prefHeight="109.0" prefWidth="165.0" text="Dolu Araçları Göster" />
+      <Button fx:id="serbest_cars_button" layoutX="247.0" layoutY="163.0" mnemonicParsing="false" onAction="#showAvailableCars" prefHeight="109.0" prefWidth="165.0" text="Boş Araçları Göster" />
       <Button fx:id="logOutButton" layoutX="763.0" layoutY="29.0" mnemonicParsing="false" onAction="#onLogOutButtonClıck" prefHeight="64.0" prefWidth="151.0" text="Hesaptan Çık">
          <font>
             <Font name="System Bold" size="18.0" />
