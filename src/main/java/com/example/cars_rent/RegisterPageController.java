@@ -53,7 +53,7 @@ public class RegisterPageController {
         if (isRegistered) {
             showAlert(Alert.AlertType.INFORMATION, "Başarı", "Başarılı bir şekilde kayıt oldunuz.");
         } else {
-            showAlert(Alert.AlertType.ERROR, "Hata", "Kayıt hatası. Bu E-posta veya Kullanıcı Adı sistemde önceden mevcuttur.");
+            showAlert(Alert.AlertType.ERROR, "Hata", "Kayıt hatası. Bu E-posta veya Kullanıcı Adı daha önce sistemde kaydedilmiştir.");
         }
     }
 
