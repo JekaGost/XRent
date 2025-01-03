@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MainMenu {
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(RegisterPage.class.getResource("register-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(RegisterPage.class.getResource("main-menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 880, 900);
         stage.setTitle("Register Page");
         stage.setScene(scene);
