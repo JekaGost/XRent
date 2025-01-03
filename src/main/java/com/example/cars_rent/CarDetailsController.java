@@ -41,6 +41,8 @@ public class CarDetailsController {
     private Button reserveButton;
     @FXML
     private Button backButton;
+    @FXML
+    private Button clearReservationButton;
 
 
     private Car currentCar;
@@ -66,19 +68,19 @@ public class CarDetailsController {
         statusLabel.setText("Статус: " + (car.isStatus() ? "Свободен" : "Занят"));
         statusIndicator.setFill(car.isStatus() ? Color.GREEN : Color.RED);
 
-        reserveButton.setText(car.isStatus() ? "Зарезервировать" : "Освободить");
+        /*reserveButton.setText(car.isStatus() ? "Зарезервировать" : "Освободить");*/
     }
 
-   /* @FXML
-    private void onReserveButtonClick() {
-        boolean newStatus = !currentCar.isStatus();
+    @FXML
+    private void onClearReservationButtonCllick() {
+        boolean newStatus = true;
         if (CarService.updateCarStatus(currentCar.getId(), newStatus)) {
             currentCar.setStatus(newStatus);
             setCarDetails(currentCar);
         } else {
             // Вывести ошибку
         }
-    } */
+    }
 
     @FXML
     public void onReserveButtonClick() {

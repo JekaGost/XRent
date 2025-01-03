@@ -20,9 +20,9 @@ public class AdminMainMenuController {
         }
     }
 
-    public void onProfilMenuButtonClick() {
+    public void onProfilAdminMenuButton() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("profile-page.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
             stage.show();
