@@ -55,4 +55,39 @@ public class UserService {
         }
 
     }
+
+    public static User getUserById(int userId) throws Exception {
+        Connection connection = SQL_Connect.getConnection();
+        String query = "SELECT * FROM users WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, userId);
+        ResultSet resultSet = statement.executeQuery();
+
+        if (resultSet.next()) {
+            return new User(
+                    resultSet.getInt("id"),
+                    resultSet.getString("username"),
+                    resultSet.getString("email"),
+                    resultSet.getString("first_name"),
+                    resultSet.getString("last_name"),
+                    resultSet.getString("phone_number"),
+                    resultSet.getBoolean("isAdmin"),
+                    resultSet.getString("password")
+            );
+        }
+        throw new Exception("User not found");
+    }
+
+    public static void updateUserField(int userId, String fieldName, String newValue) {
+        try {
+            Connection connection = SQL_Connect.getConnection();
+            String query = "UPDATE users SET " + fieldName + " = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, newValue);
+            statement.setInt(2, userId);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
