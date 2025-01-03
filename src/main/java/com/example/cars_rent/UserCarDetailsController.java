@@ -1,15 +1,15 @@
 package com.example.cars_rent;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.scene.control.Alert;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class UserCarDetailsController {
@@ -44,6 +44,8 @@ public class UserCarDetailsController {
     private Button backButton;
 
     private Car currentCar;
+    private String generatedCode;
+    private String userEmail = "user@example.com"; // Замените на текущий email пользователя
 
     public void setCarDetails(Car car) {
         this.currentCar = car;
@@ -68,15 +70,21 @@ public class UserCarDetailsController {
         reserveButton.setText(car.isStatus() ? "Зарезервировать" : "Освободить");
     }
 
+    @FXML
     public void onReserveButtonClick() {
         try {
-            // 1. Сгенерировать случайный код
+            if (currentCar == null) {
+                showAlert("Ошибка", "Автомобиль не выбран.", Alert.AlertType.ERROR);
+                return;
+            }
+
+            // Генерация кода подтверждения
             generatedCode = generateVerificationCode();
 
-            // 2. Отправить код на email пользователя
+            // Отправка кода на email пользователя
             EmailService.sendVerificationCode(userEmail, generatedCode);
 
-            // 3. Показать всплывающее окно для ввода кода
+            // Диалоговое окно для ввода кода
             TextInputDialog dialog = new TextInputDialog();
             dialog.setTitle("Подтверждение резервирования");
             dialog.setHeaderText("Введите код, отправленный на ваш email.");
@@ -86,31 +94,34 @@ public class UserCarDetailsController {
             if (result.isPresent()) {
                 String enteredCode = result.get();
 
-                // 4. Проверить, совпадает ли введенный код с отправленным
                 if (generatedCode.equals(enteredCode)) {
-                    // Код верный, резервируем автомобиль
-                    CarService.reserveCar(carId, userEmail); // Метод для обновления в базе
-                    showAlert2("Успех", "Автомобиль успешно зарезервирован!", Alert.AlertType.INFORMATION);
+                    // Резервируем автомобиль
+                    CarService.reserveCar(currentCar.getId(), userEmail);
+                    showAlert("Успех", "Автомобиль успешно зарезервирован!", Alert.AlertType.INFORMATION);
+
+                    // Обновление статуса
+                    currentCar.setStatus(false);
+                    updateCarStatus();
                 } else {
-                    // Код неверный
-                    showAlert2("Ошибка", "Неверный код подтверждения.", Alert.AlertType.ERROR);
+                    showAlert("Ошибка", "Неверный код подтверждения.", Alert.AlertType.ERROR);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert2("Ошибка", "Произошла ошибка при резервировании автомобиля.", Alert.AlertType.ERROR);
+            showAlert("Ошибка", "Произошла ошибка при резервировании автомобиля.", Alert.AlertType.ERROR);
         }
     }
 
-    // Генерация случайного 6-значного кода
     private String generateVerificationCode() {
         Random random = new Random();
-        int code = 100000 + random.nextInt(900000); // Генерация числа от 100000 до 999999
+        int code = 100000 + random.nextInt(900000);
         return String.valueOf(code);
     }
 
     private void updateCarStatus() {
-        // Логика обновления статуса автомобиля
+        statusLabel.setText("Статус: " + (currentCar.isStatus() ? "Свободен" : "Занят"));
+        statusIndicator.setFill(currentCar.isStatus() ? Color.GREEN : Color.RED);
+        reserveButton.setText(currentCar.isStatus() ? "Зарезервировать" : "Освободить");
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
@@ -120,18 +131,9 @@ public class UserCarDetailsController {
         alert.showAndWait();
     }
 
-    private void showAlert2(String title, String content, Alert.AlertType type) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
-
     @FXML
     private void onBackButtonClick() {
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
-        // Логика возврата к предыдущему экрану
     }
 }
