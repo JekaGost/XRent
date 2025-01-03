@@ -5,13 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class CarsMainPageController {
     @FXML
-    private AnchorPane carListContainer;
+    private VBox carListContainer;
 
     public void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
