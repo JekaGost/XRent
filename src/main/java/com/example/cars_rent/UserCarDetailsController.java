@@ -51,16 +51,16 @@ public class UserCarDetailsController {
         this.currentCar = car;
         carTitleLabel.setText(car.getBrand() + " " + car.getModel());
         transmissionLabel.setText("Vites türü: " + car.getTransmission());
-        engineCapacityLabel.setText("Motor silindir hacmi: " + car.getEngineCapacity() + " л");
+        engineCapacityLabel.setText("Motor silindir hacmi: " + car.getEngineCapacity() + " L");
         fuelTypeLabel.setText("Yakıt tipi: " + car.getFuelType());
-        horsepowerLabel.setText("Güç: " + car.getHorsepower() + " л.с.");
+        horsepowerLabel.setText("Güç: " + car.getHorsepower() + " hp.");
         driveTypeLabel.setText("Tahrik türü: " + car.getDriveType());
-        accelerationLabel.setText("100 km/s hıza çıkma: " + car.getAcceleration() + " с");
+        accelerationLabel.setText("100 km/s hıza çıkma: " + car.getAcceleration() + " s");
         engineTypeLabel.setText("Motor türü: " + car.getEngineType());
-        fuelConsumptionLabel.setText("Yakıt tüketimi: " + car.getFuelConsumption() + " л/100 км");
+        fuelConsumptionLabel.setText("Yakıt tüketimi: " + car.getFuelConsumption() + " L/100 km");
 
         if (car.getElectricRange() != null) {
-            electricRangeLabel.setText("Elektrikli sürüş menzili: " + car.getElectricRange() + " км");
+            electricRangeLabel.setText("Elektrikli sürüş menzili: " + car.getElectricRange() + " km");
             electricRangeLabel.setVisible(true);
         }
 

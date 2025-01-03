@@ -7,6 +7,5 @@
    <children>
       <Button fx:id="AdminMenuButton" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#onAdminMenuButtonClick" prefHeight="189.0" prefWidth="179.0" text="Admin Menü" />
       <Button fx:id="ProfilAdminMenuButton" layoutX="259.0" layoutY="75.0" mnemonicParsing="false" onAction="#onProfilAdminMenuButton" prefHeight="189.0" prefWidth="179.0" text="Profil" />
-      <Button fx:id="SettingsMenuButton" layoutX="457.0" layoutY="75.0" mnemonicParsing="false" prefHeight="189.0" prefWidth="179.0" text="Ayarlar" />
    </children>
 </AnchorPane>

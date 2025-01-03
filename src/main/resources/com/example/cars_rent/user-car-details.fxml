@@ -13,16 +13,16 @@
                 <Font size="24.0" />
             </font>
         </Label>
-        <Label fx:id="transmissionLabel" layoutX="20.0" layoutY="80.0" text="Коробка передач: " />
-        <Label fx:id="engineCapacityLabel" layoutX="20.0" layoutY="110.0" text="Объем двигателя: " />
-        <Label fx:id="fuelTypeLabel" layoutX="20.0" layoutY="140.0" text="Тип топлива: " />
-        <Label fx:id="horsepowerLabel" layoutX="20.0" layoutY="170.0" text="Мощность: " />
-        <Label fx:id="driveTypeLabel" layoutX="20.0" layoutY="200.0" text="Тип привода: " />
-        <Label fx:id="accelerationLabel" layoutX="20.0" layoutY="230.0" text="Разгон до 100 км/ч: " />
-        <Label fx:id="engineTypeLabel" layoutX="20.0" layoutY="260.0" text="Тип двигателя: " />
-        <Label fx:id="fuelConsumptionLabel" layoutX="20.0" layoutY="290.0" text="Расход топлива: " />
-        <Label fx:id="electricRangeLabel" layoutX="20.0" layoutY="320.0" text="Запас хода на электричестве: " visible="false" />
-        <Label fx:id="statusLabel" layoutX="20.0" layoutY="350.0" text="Статус: " />
+        <Label fx:id="transmissionLabel" layoutX="20.0" layoutY="80.0" text="Vites türü: " />
+        <Label fx:id="engineCapacityLabel" layoutX="20.0" layoutY="110.0" text="Motor silindir hacmi: " />
+        <Label fx:id="fuelTypeLabel" layoutX="20.0" layoutY="140.0" text="Yakıt tipi: " />
+        <Label fx:id="horsepowerLabel" layoutX="20.0" layoutY="170.0" text="Güç: " />
+        <Label fx:id="driveTypeLabel" layoutX="20.0" layoutY="200.0" text="Tahrik türü: " />
+        <Label fx:id="accelerationLabel" layoutX="20.0" layoutY="230.0" text="100 km/s hıza çıkma: " />
+        <Label fx:id="engineTypeLabel" layoutX="20.0" layoutY="260.0" text="Motor türü: " />
+        <Label fx:id="fuelConsumptionLabel" layoutX="20.0" layoutY="290.0" text="Yakıt tüketimi: " />
+        <Label fx:id="electricRangeLabel" layoutX="20.0" layoutY="320.0" text="Elektrikli sürüş menzili: " visible="false" />
+        <Label fx:id="statusLabel" layoutX="20.0" layoutY="350.0" text="Durum: " />
         <Rectangle fx:id="statusIndicator" height="20.0" layoutX="133.0" layoutY="348.0" stroke="BLACK" width="20.0" />
         <Button fx:id="reserveButton" layoutX="450.0" layoutY="350.0" mnemonicParsing="false" onAction="#onReserveButtonClick" text="Зарезервировать" />
         <Button fx:id="backButton" layoutX="388.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Назад" />
