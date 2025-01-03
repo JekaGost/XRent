@@ -1,6 +1,5 @@
 package com.example.cars_rent;
 
-import javafx.application.Platform;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import javafx.scene.control.Label;
-
-import javafx.scene.control.TextField;
 
 
 
