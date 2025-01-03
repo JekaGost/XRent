@@ -52,15 +52,6 @@ public class CarsMainController {
         loadAvailableCars();
     }
 
-    @FXML
-    private void onBackButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("menu-view.fxml"));
-        Scene menuScene = new Scene(loader.load());
-
-        Stage stage = (Stage) carListContainer.getScene().getWindow();
-        stage.setScene(menuScene);
-        stage.show();
-    }
 
     private void loadAvailableCars() {
         carListContainer.getChildren().clear();
