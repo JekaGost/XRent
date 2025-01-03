@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public boolean loginUser(String username, String password) {
-        String sql = "SELECT id, isAdmin FROM users WHERE username = ? AND password = MD5(?)";
+        String sql = "SELECT id, email, isAdmin FROM users WHERE username = ? AND password = MD5(?)";
 
         try (Connection connection = SQL_Connect.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -42,8 +42,11 @@ public class UserService {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
+                String email = resultSet.getString("email");
                 int userId = resultSet.getInt("id");
                 boolean isAdmin = resultSet.getBoolean("isAdmin");
+
+                UserSession.setEmail(email);
                 UserSession.setUserId(userId); // Save User Id
                 UserSession.setIsAdmin(isAdmin); // Сохраняем статус в сессии
                 return true;
