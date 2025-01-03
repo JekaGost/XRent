@@ -6,6 +6,6 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.MainMenuController">
    <children>
       <Button fx:id="CarsMenuButton" layoutX="62.0" layoutY="66.0" mnemonicParsing="false" onAction="#onCarsMenuButtonClick" prefHeight="225.0" prefWidth="197.0" text="Arabalara Göz At" />
-      <Button fx:id="ProfilMenuButton" layoutX="300.0" layoutY="66.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="197.0" text="Profil" />
+      <Button fx:id="ProfilMenuButton" layoutX="300.0" layoutY="66.0" mnemonicParsing="false" onAction="#onProfilMenuButtonClick" prefHeight="225.0" prefWidth="197.0" text="Profil" />
    </children>
 </AnchorPane>
