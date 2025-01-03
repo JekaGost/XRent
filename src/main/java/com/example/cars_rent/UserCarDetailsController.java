@@ -10,6 +10,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 
+import java.util.Random;
+
 public class UserCarDetailsController {
 
     @FXML
@@ -67,19 +69,44 @@ public class UserCarDetailsController {
     }
 
     public void onReserveButtonClick() {
-        // Отправка кода подтверждения на email
-        String code = EmailService.sendVerificationCodeToUser("user_email@example.com");
+        try {
+            // 1. Сгенерировать случайный код
+            generatedCode = generateVerificationCode();
 
-        // Всплывающее окно для ввода кода
-        String enteredCode = showInputDialog("Введите код подтверждения:");
-        if (enteredCode != null && enteredCode.equals(code)) {
-            // Резервируем автомобиль
-            CarService.reserveCar(carId);
-            updateCarStatus();
-            showAlert("Успех", "Автомобиль успешно зарезервирован!", Alert.AlertType.INFORMATION);
-        } else {
-            showAlert("Ошибка", "Неверный код подтверждения.", Alert.AlertType.ERROR);
+            // 2. Отправить код на email пользователя
+            EmailService.sendVerificationCode(userEmail, generatedCode);
+
+            // 3. Показать всплывающее окно для ввода кода
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Подтверждение резервирования");
+            dialog.setHeaderText("Введите код, отправленный на ваш email.");
+            dialog.setContentText("Код подтверждения:");
+
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent()) {
+                String enteredCode = result.get();
+
+                // 4. Проверить, совпадает ли введенный код с отправленным
+                if (generatedCode.equals(enteredCode)) {
+                    // Код верный, резервируем автомобиль
+                    CarService.reserveCar(carId, userEmail); // Метод для обновления в базе
+                    showAlert2("Успех", "Автомобиль успешно зарезервирован!", Alert.AlertType.INFORMATION);
+                } else {
+                    // Код неверный
+                    showAlert2("Ошибка", "Неверный код подтверждения.", Alert.AlertType.ERROR);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert2("Ошибка", "Произошла ошибка при резервировании автомобиля.", Alert.AlertType.ERROR);
         }
+    }
+
+    // Генерация случайного 6-значного кода
+    private String generateVerificationCode() {
+        Random random = new Random();
+        int code = 100000 + random.nextInt(900000); // Генерация числа от 100000 до 999999
+        return String.valueOf(code);
     }
 
     private void updateCarStatus() {
@@ -90,6 +117,14 @@ public class UserCarDetailsController {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showAlert2(String title, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
         alert.showAndWait();
     }
 
