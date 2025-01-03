@@ -45,36 +45,36 @@ public class UserCarDetailsController {
 
     private Car currentCar;
     private String generatedCode;
-    private String userEmail = "user@example.com"; // Замените на текущий email пользователя
+    /*private String userEmail = "user@example.com"; // Замените на текущий email пользователя*/
 
     public void setCarDetails(Car car) {
         this.currentCar = car;
         carTitleLabel.setText(car.getBrand() + " " + car.getModel());
-        transmissionLabel.setText("Коробка передач: " + car.getTransmission());
-        engineCapacityLabel.setText("Объем двигателя: " + car.getEngineCapacity() + " л");
-        fuelTypeLabel.setText("Тип топлива: " + car.getFuelType());
-        horsepowerLabel.setText("Мощность: " + car.getHorsepower() + " л.с.");
-        driveTypeLabel.setText("Тип привода: " + car.getDriveType());
-        accelerationLabel.setText("Разгон до 100 км/ч: " + car.getAcceleration() + " с");
-        engineTypeLabel.setText("Тип двигателя: " + car.getEngineType());
-        fuelConsumptionLabel.setText("Расход топлива: " + car.getFuelConsumption() + " л/100 км");
+        transmissionLabel.setText("Vites türü: " + car.getTransmission());
+        engineCapacityLabel.setText("Motor silindir hacmi: " + car.getEngineCapacity() + " л");
+        fuelTypeLabel.setText("Yakıt tipi: " + car.getFuelType());
+        horsepowerLabel.setText("Güç: " + car.getHorsepower() + " л.с.");
+        driveTypeLabel.setText("Tahrik türü: " + car.getDriveType());
+        accelerationLabel.setText("100 km/s hıza çıkma: " + car.getAcceleration() + " с");
+        engineTypeLabel.setText("Motor türü: " + car.getEngineType());
+        fuelConsumptionLabel.setText("Yakıt tüketimi: " + car.getFuelConsumption() + " л/100 км");
 
         if (car.getElectricRange() != null) {
-            electricRangeLabel.setText("Запас хода на электричестве: " + car.getElectricRange() + " км");
+            electricRangeLabel.setText("Elektrikli sürüş menzili: " + car.getElectricRange() + " км");
             electricRangeLabel.setVisible(true);
         }
 
-        statusLabel.setText("Статус: " + (car.isStatus() ? "Свободен" : "Занят"));
+        statusLabel.setText("Durum: " + (car.isStatus() ? "Serbest" : "Dolu"));
         statusIndicator.setFill(car.isStatus() ? Color.GREEN : Color.RED);
 
-        reserveButton.setText(car.isStatus() ? "Зарезервировать" : "Освободить");
+        reserveButton.setText(car.isStatus() ? "Rezerve Yap" : "İptal Et");
     }
 
     @FXML
     public void onReserveButtonClick() {
         try {
             if (currentCar == null) {
-                showAlert("Ошибка", "Автомобиль не выбран.", Alert.AlertType.ERROR);
+                showAlert("Ошибка", "Araç seçilmemiştir.", Alert.AlertType.ERROR);
                 return;
             }
 
@@ -82,13 +82,13 @@ public class UserCarDetailsController {
             generatedCode = generateVerificationCode();
 
             // Отправка кода на email пользователя
-            EmailService.sendVerificationCode(userEmail, generatedCode);
+            EmailService.sendVerificationCode(UserSession.getEmail(), generatedCode);
 
             // Диалоговое окно для ввода кода
             TextInputDialog dialog = new TextInputDialog();
-            dialog.setTitle("Подтверждение резервирования");
-            dialog.setHeaderText("Введите код, отправленный на ваш email.");
-            dialog.setContentText("Код подтверждения:");
+            dialog.setTitle("Rezervasyon onayı");
+            dialog.setHeaderText("E-postanıza gönderilen kodu giriniz.");
+            dialog.setContentText("Onay Kodu:");
 
             Optional<String> result = dialog.showAndWait();
             if (result.isPresent()) {
@@ -96,19 +96,19 @@ public class UserCarDetailsController {
 
                 if (generatedCode.equals(enteredCode)) {
                     // Резервируем автомобиль
-                    CarService.reserveCar(currentCar.getId(), userEmail);
-                    showAlert("Успех", "Автомобиль успешно зарезервирован!", Alert.AlertType.INFORMATION);
+                    CarService.reserveCar(currentCar.getId(), UserSession.getEmail());
+                    showAlert("Başarı", "Araç başarıyla rezerve edildi!", Alert.AlertType.INFORMATION);
 
                     // Обновление статуса
                     currentCar.setStatus(false);
                     updateCarStatus();
                 } else {
-                    showAlert("Ошибка", "Неверный код подтверждения.", Alert.AlertType.ERROR);
+                    showAlert("Hata", "Geçersiz onay kodu.", Alert.AlertType.ERROR);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Ошибка", "Произошла ошибка при резервировании автомобиля.", Alert.AlertType.ERROR);
+            showAlert("Hata", "Araç rezervasyonu yaparken bir hata oluştu.", Alert.AlertType.ERROR);
         }
     }
 
@@ -119,9 +119,9 @@ public class UserCarDetailsController {
     }
 
     private void updateCarStatus() {
-        statusLabel.setText("Статус: " + (currentCar.isStatus() ? "Свободен" : "Занят"));
+        statusLabel.setText("Durum: " + (currentCar.isStatus() ? "Serbest" : "Dolu"));
         statusIndicator.setFill(currentCar.isStatus() ? Color.GREEN : Color.RED);
-        reserveButton.setText(currentCar.isStatus() ? "Зарезервировать" : "Освободить");
+        reserveButton.setText(currentCar.isStatus() ? "Rezerve Yap" : "İptal Et");
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
