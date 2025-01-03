@@ -8,6 +8,7 @@
 <AnchorPane fx:id="carListContainer" prefHeight="663.0" prefWidth="1017.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.CarsLibraryController">
    <children>
       <Label fx:id="all_cars_label" alignment="CENTER" layoutX="358.0" layoutY="36.0" prefHeight="127.0" prefWidth="302.0" text="Tüm Araçlar">
+         <Button fx:id="backButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Назад" />
          <font>
             <Font name="System Bold" size="48.0" />
          </font>
