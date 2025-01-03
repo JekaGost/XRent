@@ -16,12 +16,8 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="exit_button" layoutX="922.0" layoutY="32.0" mnemonicParsing="false" onAction="#onExitButton" prefHeight="61.0" prefWidth="153.0" text="Hesaptan Çık">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
+      <Button layoutX="10.0" layoutY="400.0" prefHeight="40.0" prefWidth="100.0" text="Назад" onAction="#onBackButtonClick" />
    </children>
 </AnchorPane>

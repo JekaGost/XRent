@@ -41,4 +41,10 @@ public class CarsMainPageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void onBackButtonClick() {
+        Stage stage = (Stage) carListContainer.getScene().getWindow();
+        stage.close();  // Закрываем текущее окно
+    }
 }
