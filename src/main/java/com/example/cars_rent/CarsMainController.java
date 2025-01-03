@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 
 public class CarsMainController {
 
-    @FXML
+    /* @FXML
     private VBox carListContainer;
 
     /*private void loadCars(Boolean onlyAvailable) {
@@ -45,7 +45,7 @@ public class CarsMainController {
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
-    }*/
+    }
 
     @FXML
     public void initialize() {
@@ -87,5 +87,5 @@ public class CarsMainController {
 
         Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
         stage.setScene(secondScene);
-    }
+    } */
 }
