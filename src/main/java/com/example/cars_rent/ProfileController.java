@@ -31,16 +31,24 @@ public class ProfileController {
         loadUserData();
     }
 
-    private int userId; // ID текущего пользователя
-
+    //private int userId; // ID текущего пользователя
+/*
     public void setUserId(int userId) {
         this.userId = userId;
         loadUserData();
     }
+    */
+
+    private void setFirstNameLabel(String firstName) {
+        this.firstNameLabel.setText(firstName);
+    }
+
 
     private void loadUserData() {
         try {
-            User user = UserService.getUserById(userId); // Получаем данные из БД
+            User user = UserService.getUserById(); // Получаем данные из БД
+            //this.setUserId(user.getId());
+            this.setFirstNameLabel(user.getFirstName());
             firstNameLabel.setText(user.getFirstName());
             lastNameLabel.setText(user.getLastName());
             emailLabel.setText(user.getEmail());
@@ -50,11 +58,12 @@ public class ProfileController {
         }
     }
 
+
     @FXML
     private void editFirstName() {
         String newFirstName = PopupUtils.showInputDialog("Введите новое имя:");
         if (newFirstName != null) {
-            UserService.updateUserField(userId, "first_name", newFirstName);
+            UserService.updateUserField(UserSession.getUserId(), "first_name", newFirstName);
             loadUserData();
         }
     }
@@ -63,7 +72,7 @@ public class ProfileController {
     private void editLastName() {
         String newLastName = PopupUtils.showInputDialog("Введите новую фамилию:");
         if (newLastName != null) {
-            UserService.updateUserField(userId, "last_name", newLastName);
+            UserService.updateUserField(UserSession.getUserId(), "last_name", newLastName);
             loadUserData();
         }
     }
@@ -72,7 +81,7 @@ public class ProfileController {
     private void editEmail() {
         String newEmail = PopupUtils.showInputDialog("Введите новый Email:");
         if (newEmail != null) {
-            UserService.updateUserField(userId, "email", newEmail);
+            UserService.updateUserField(UserSession.getUserId(), "email", newEmail);
             loadUserData();
         }
     }
@@ -81,7 +90,7 @@ public class ProfileController {
     private void editPhoneNumber() {
         String newPhoneNumber = PopupUtils.showInputDialog("Введите новый номер телефона:");
         if (newPhoneNumber != null) {
-            UserService.updateUserField(userId, "phone_number", newPhoneNumber);
+            UserService.updateUserField(UserSession.getUserId(), "phone_number", newPhoneNumber);
             loadUserData();
         }
     }

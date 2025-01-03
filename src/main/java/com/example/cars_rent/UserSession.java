@@ -1,7 +1,16 @@
 package com.example.cars_rent;
 
 public class UserSession {
+    private static int userId;
     private static boolean isAdmin;
+
+    public static void setUserId(int userId) {
+        UserSession.userId = userId;
+    }
+
+    public static int getUserId() {
+        return UserSession.userId;
+    }
 
     public static boolean isAdmin() {
         return isAdmin;
