@@ -16,19 +16,3 @@ public class MainMenu {
     }
 }
 
-/*private void MainMenu() {
-
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(loader.load()));
-
-        CarsMainController controller = loader.getController();
-
-        stage.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    // Логика открытия окна с деталями автомобиля
-}*/
-
