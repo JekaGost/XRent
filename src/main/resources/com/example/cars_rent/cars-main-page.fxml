@@ -8,7 +8,6 @@
 
 
 <VBox fx:id="carListContainer" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.CarsMainController">
-   <Button fx:id="backButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Назад" />
    <children>
       <AnchorPane prefHeight="671.0" prefWidth="1120.0">
          <children>
