@@ -74,7 +74,7 @@ public class UserCarDetailsController {
     public void onReserveButtonClick() {
         try {
             if (currentCar == null) {
-                showAlert("Ошибка", "Araç seçilmemiştir.", Alert.AlertType.ERROR);
+                showAlert("Hata", "Araç seçilmemiştir.", Alert.AlertType.ERROR);
                 return;
             }
 
