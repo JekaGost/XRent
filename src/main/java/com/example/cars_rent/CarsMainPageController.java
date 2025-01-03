@@ -14,6 +14,11 @@ public class CarsMainPageController {
     @FXML
     private VBox carListContainer;
 
+    @FXML
+    public void initialize() {
+        loadCars(true);
+    }
+
     public void loadCars(Boolean onlyAvailable) {
         carListContainer.getChildren().clear();
 
