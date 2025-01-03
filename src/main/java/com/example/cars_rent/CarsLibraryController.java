@@ -27,10 +27,10 @@ public class CarsLibraryController {
         openFilteredCarsWindow(false);
     }
 
-    @FXML
+   /* @FXML
     private void showAllCars() {
-        openFilteredCarsWindow(null);
-    }
+        openFilteredCarsWindow(true);
+    } */
 
 
     /*@FXML
