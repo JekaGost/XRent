@@ -87,10 +87,23 @@ public class CarsLibraryController {
 
         CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
+            carButton.setPrefWidth(200); // Увеличение ширины кнопок
+            carButton.setPrefHeight(50); // Увеличение высоты кнопок
+            carButton.setStyle("-fx-font-size: 16px;"); // Увеличение размера текста
             carButton.setOnAction(event -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
     }
+
+    /*private void loadCars(Boolean onlyAvailable) {
+        carListContainer.getChildren().clear();
+
+        CarService.getCars(onlyAvailable != null && onlyAvailable).forEach(car -> {
+            Button carButton = new Button(car.getBrand() + " " + car.getModel());
+            carButton.setOnAction(event -> openCarDetails(car));
+            carListContainer.getChildren().add(carButton);
+        });
+    }*/
 
     private void openCarDetails(Car car) {
 
