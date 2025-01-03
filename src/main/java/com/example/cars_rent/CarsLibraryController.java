@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 public class CarsLibraryController {
 
 
+    @FXML
     private AnchorPane carListContainer;
 
     @FXML
