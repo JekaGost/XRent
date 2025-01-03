@@ -41,7 +41,7 @@ public class LoginPageController {
             showAlert(Alert.AlertType.INFORMATION, "Успех", "Вы успешно вошли в систему.");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    UserSession.isAdmin() ? "cars-library-page.fxml" : "cars-main-page.fxml"
+                    UserSession.isAdmin() ? "admin-main-menu.fxml" : "main-menu.fxml"
             ));
 
             Scene nextScene = new Scene(loader.load(),940, 900);
