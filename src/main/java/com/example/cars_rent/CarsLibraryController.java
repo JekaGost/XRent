@@ -15,7 +15,25 @@ import javafx.scene.control.Label;
 public class CarsLibraryController {
 
 
+    private AnchorPane carListContainer;
+
     @FXML
+    private void showAvailableCars() {
+        openFilteredCarsWindow(true);
+    }
+
+    @FXML
+    private void showOccupiedCars() {
+        openFilteredCarsWindow(false);
+    }
+
+    @FXML
+    private void showAllCars() {
+        openFilteredCarsWindow(null);
+    }
+
+
+    /*@FXML
     private AnchorPane carListContainer;
 
 
@@ -32,7 +50,7 @@ public class CarsLibraryController {
     @FXML
     public void showAllCars() {
         loadCars(null);
-    }
+    }*/
 
 
     /*
@@ -120,6 +138,22 @@ public class CarsLibraryController {
             e.printStackTrace();
         }
         // Логика открытия окна с деталями автомобиля
+    }
+
+    private void openFilteredCarsWindow(Boolean onlyAvailable) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-main-page.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(loader.load()));
+
+            // Получаем контроллер новой сцены и передаем фильтр
+            CarsMainPageController controller = loader.getController();
+            controller.loadCars(onlyAvailable);
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

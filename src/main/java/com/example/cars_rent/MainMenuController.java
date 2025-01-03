@@ -9,13 +9,26 @@ import java.io.IOException;
 
 public class MainMenuController {
 
-    @FXML
-    private void onCarsMenuButtonClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-main-page.fxml"));
-        Scene secondScene = new Scene(loader.load());
+    public void onCarsMenuButtonClick() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-main-page.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
-        stage.setScene(secondScene);
+    public void onProfilMenuButtonClick() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("profile-page.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

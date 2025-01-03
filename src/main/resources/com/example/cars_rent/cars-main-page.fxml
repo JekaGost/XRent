@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox fx:id="carListContainer" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.CarsMainController">
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.CarsMainPageController">
    <children>
-      <AnchorPane prefHeight="671.0" prefWidth="1120.0">
+      <AnchorPane fx:id="carListContainer" layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="580.0">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="376.0" layoutY="24.0" prefHeight="97.0" prefWidth="313.0" text="Serbest Araçlar">
                <font>
@@ -24,4 +24,4 @@
          </children>
       </AnchorPane>
    </children>
-</VBox>
+</AnchorPane>
