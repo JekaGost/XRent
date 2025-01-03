@@ -27,14 +27,14 @@ public class LoginPageController {
 
 
         if (username.isEmpty() || password.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Ошибка", "Поля не должны быть пустыми.");
+            showAlert(Alert.AlertType.ERROR, "Hata", "Alanlar boş bırakılmamalıdır.");
             return;
         }
 
         boolean isLoginSuccessful = userService.loginUser(username, password);
 
         if (isLoginSuccessful) {
-            showAlert(Alert.AlertType.INFORMATION, "Успех", "Вы успешно вошли в систему.");
+            showAlert(Alert.AlertType.INFORMATION, "Başarı", "Başarılı bir şekilde giriş yaptınız.");
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(
                     UserSession.isAdmin() ? "admin-main-menu.fxml" : "main-menu.fxml"
@@ -45,16 +45,9 @@ public class LoginPageController {
             stage.setScene(nextScene);
 
         } else {
-            showAlert(Alert.AlertType.ERROR, "Ошибка", "Неверное имя пользователя или пароль.");
+            showAlert(Alert.AlertType.ERROR, "Hata", "Geçersiz kullanıcı adı veya şifre.");
         }
     }
-
-            /*FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-main-page.fxml"));
-            Scene secondScene = new Scene(loader.load());
-
-            Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
-            stage.setScene(secondScene);
-        }*/
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);

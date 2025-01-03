@@ -44,39 +44,17 @@ public class RegisterPageController {
         String phoneNumber = phoneNumberField.getText();
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Ошибка", "Все поля должны быть заполнены.");
+            showAlert(Alert.AlertType.ERROR, "Hata", "Bütün alanlar doldurulmalıdır.");
             return;
         }
 
         boolean isRegistered = userService.registerUser(username, email, password, firstName, lastName, phoneNumber);
 
         if (isRegistered) {
-            showAlert(Alert.AlertType.INFORMATION, "Успех", "Вы успешно зарегистрировались.");
+            showAlert(Alert.AlertType.INFORMATION, "Başarı", "Başarılı bir şekilde kayıt oldunuz.");
         } else {
-            showAlert(Alert.AlertType.ERROR, "Ошибка", "Ошибка при регистрации.");
+            showAlert(Alert.AlertType.ERROR, "Hata", "Kayıt hatası. Bu E-posta veya Kullanıcı Adı sistemde önceden mevcuttur.");
         }
-
-
-        // Меняем текст заголовка
-        /*register_label.setText("Kayıt Tamamlandı!");
-
-        // Таймер для возврата на главную страницу через 8 секунд
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Platform.runLater(() -> { // Переход на главную страницу
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-                        Scene mainScene = new Scene(loader.load());
-                        Stage stage = (Stage) register_label.getScene().getWindow();
-                        stage.setScene(mainScene);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-        }, 4000); // 8000 миллисекунд = 8 секунд */
     }
 
     @FXML

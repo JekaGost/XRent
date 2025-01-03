@@ -31,8 +31,8 @@ public class EmailService {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(SENDER_EMAIL));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
-        message.setSubject("Код подтверждения для резервирования");
-        message.setText("Ваш код подтверждения: " + verificationCode);
+        message.setSubject("Rezervasyon için onay kodu");
+        message.setText("Onay kodunuz: " + verificationCode);
 
         // Отправка сообщения
         Transport.send(message);

@@ -10,6 +10,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CarsMainPageController {
+
+    public class CarsMainPage {
+        public void start(Stage stage) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(RegisterPage.class.getResource("cars-main-page.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 880, 900);
+            stage.setTitle("Araçlar listesi");
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
     @FXML
     private VBox carListContainer;
 

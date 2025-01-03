@@ -12,7 +12,7 @@ public class LoginPage {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LoginPage.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 880, 900);
-        stage.setTitle("Login");
+        stage.setTitle("Giriş Ekranı");
         stage.setScene(scene);
         stage.show();
     }

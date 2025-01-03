@@ -61,7 +61,7 @@ public class ProfileController {
 
     @FXML
     private void editFirstName() {
-        String newFirstName = PopupUtils.showInputDialog("Введите новое имя:");
+        String newFirstName = PopupUtils.showInputDialog("Yeni isim giriniz:");
         if (newFirstName != null) {
             UserService.updateUserField(UserSession.getUserId(), "first_name", newFirstName);
             loadUserData();
@@ -70,7 +70,7 @@ public class ProfileController {
 
     @FXML
     private void editLastName() {
-        String newLastName = PopupUtils.showInputDialog("Введите новую фамилию:");
+        String newLastName = PopupUtils.showInputDialog("Yeni soyadı giriniz:");
         if (newLastName != null) {
             UserService.updateUserField(UserSession.getUserId(), "last_name", newLastName);
             loadUserData();
@@ -79,7 +79,7 @@ public class ProfileController {
 
     @FXML
     private void editEmail() {
-        String newEmail = PopupUtils.showInputDialog("Введите новый Email:");
+        String newEmail = PopupUtils.showInputDialog("Yeni E-postayı giriniz:");
         if (newEmail != null) {
             UserService.updateUserField(UserSession.getUserId(), "email", newEmail);
             loadUserData();
@@ -88,7 +88,7 @@ public class ProfileController {
 
     @FXML
     private void editPhoneNumber() {
-        String newPhoneNumber = PopupUtils.showInputDialog("Введите новый номер телефона:");
+        String newPhoneNumber = PopupUtils.showInputDialog("Yeni telefon numarasını giriniz:");
         if (newPhoneNumber != null) {
             UserService.updateUserField(UserSession.getUserId(), "phone_number", newPhoneNumber);
             loadUserData();

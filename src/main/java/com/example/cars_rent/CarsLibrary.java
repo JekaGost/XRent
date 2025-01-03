@@ -10,7 +10,7 @@ public class CarsLibrary {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CarsLibrary.class.getResource("cars-library-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 880, 900);
-        stage.setTitle("Login");
+        stage.setTitle("Admin Paneli");
         stage.setScene(scene);
         stage.show();
     }
