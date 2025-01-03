@@ -52,4 +52,18 @@ public class CarService {
             return false;
         }
     }
+
+    public static void reserveCar(int carId, String userEmail) {
+        try (Connection connection = SQL_Connect.getConnection()) {
+            String query = "UPDATE cars SET status = ?, reserved_by = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, "Занят"); // Статус "Занят"
+            statement.setString(2, userEmail);
+            statement.setInt(3, carId);
+
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
