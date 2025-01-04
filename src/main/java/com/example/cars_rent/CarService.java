@@ -59,12 +59,12 @@ public class CarService {
             throw new IllegalArgumentException("Email cannot be null or empty");
         }
 
-        String updateQuery = "UPDATE cars SET status = ?, reserved_by = ? WHERE id = ?";
+        String updateQuery = "UPDATE cars SET status = 0, reserved_by = ? WHERE id = ?";
         try (Connection connection = SQL_Connect.getConnection();
              PreparedStatement statement = connection.prepareStatement(updateQuery)) {
-            statement.setInt(1, 1); // 1 = Занят
-            statement.setString(2, userEmail);
-            statement.setInt(3, carId);
+            /*statement.setInt(1, 1); // 1 = Занят */
+            statement.setString(1, userEmail);
+            statement.setInt(2, carId);
             statement.executeUpdate();
         }
     }
