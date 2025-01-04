@@ -53,7 +53,24 @@ public class CarService {
         }
     }
 
-    public static void reserveCar(int carId, String userEmail) {
+
+    public static void reserveCar(int carId, String userEmail) throws SQLException {
+        if (userEmail == null || userEmail.isEmpty()) {
+            throw new IllegalArgumentException("Email cannot be null or empty");
+        }
+
+        String updateQuery = "UPDATE cars SET status = ?, reserved_by = ? WHERE id = ?";
+        try (Connection connection = SQL_Connect.getConnection();
+             PreparedStatement statement = connection.prepareStatement(updateQuery)) {
+            statement.setInt(1, 1); // 1 = Занят
+            statement.setString(2, userEmail);
+            statement.setInt(3, carId);
+            statement.executeUpdate();
+        }
+    }
+
+
+   /* public static void reserveCar(int carId, String userEmail) {
         try (Connection connection = SQL_Connect.getConnection()) {
             String query = "UPDATE cars SET status = ?, reserved_by = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
@@ -65,5 +82,5 @@ public class CarService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    } */
 }
