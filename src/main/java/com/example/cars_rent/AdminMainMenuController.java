@@ -38,7 +38,7 @@ public class AdminMainMenuController {
     @FXML
     private void onLogOutButtonClick() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Scene secondScene = new Scene(loader.load());
+        Scene secondScene = new Scene(loader.load(), 920, 900);
 
         Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
         stage.setScene(secondScene);
