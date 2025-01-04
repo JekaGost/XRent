@@ -10,6 +10,6 @@
       <Button fx:id="login_button" layoutX="256.0" layoutY="253.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="52.0" prefWidth="89.0" text="Giriş Yap" />
       <Button fx:id="login_anasayfa_button" layoutX="144.0" layoutY="361.0" mnemonicParsing="false" onAction="#onLoginAnasayfaButton" prefHeight="25.0" prefWidth="295.0" text="Anasayfa" />
       <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="136.0" promptText="Şifre giriniz..." />
-      <TextField fx:id="usernameField" layoutX="226.0" layoutY="80.0" promptText="Username giriniz..." />
+      <TextField fx:id="usernameField" layoutX="226.0" layoutY="80.0" promptText="Kullanıcı Adı giriniz..." />
    </children>
 </AnchorPane>

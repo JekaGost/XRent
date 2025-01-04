@@ -15,8 +15,8 @@
          </font>
       </Label>
       <TextField fx:id="firstNameField" layoutX="129.0" layoutY="87.0" promptText="İsim" />
-      <TextField fx:id="usernameField" layoutX="323.0" layoutY="122.0" promptText="Username" />
-      <TextField fx:id="emailField" layoutX="129.0" layoutY="122.0" promptText="Email" />
+      <TextField fx:id="usernameField" layoutX="323.0" layoutY="122.0" promptText="Kullanıcı Adı" />
+      <TextField fx:id="emailField" layoutX="129.0" layoutY="122.0" promptText="E-posta" />
       <PasswordField fx:id="passwordField" layoutX="129.0" layoutY="168.0" promptText="Şifre" />
       <Button fx:id="register_devam_button" layoutX="145.0" layoutY="239.0" mnemonicParsing="false" onAction="#onRegisterDevamButton" prefHeight="109.0" prefWidth="295.0" text="Devam" />
       <Button fx:id="register_anasayfa_button" layoutX="144.0" layoutY="361.0" mnemonicParsing="false" onAction="#onRegisterAnasayfaButton" prefHeight="25.0" prefWidth="295.0" text="Anasayfa" />
