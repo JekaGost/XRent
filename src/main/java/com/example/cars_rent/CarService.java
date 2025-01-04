@@ -57,7 +57,7 @@ public class CarService {
         try (Connection connection = SQL_Connect.getConnection()) {
             String query = "UPDATE cars SET status = ?, reserved_by = ? WHERE id = ?";
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, "Занят"); // Статус "Занят"
+            statement.setString(1, "1"); // Статус "Занят"
             statement.setString(2, userEmail);
             statement.setInt(3, carId);
 

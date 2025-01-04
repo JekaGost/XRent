@@ -9,7 +9,7 @@ public class EmailService {
     private static final String SMTP_HOST = "smtp.gmail.com"; // SMTP сервер Gmail
     private static final String SMTP_PORT = "587";            // Порт SMTP
     private static final String SENDER_EMAIL = "lcarlrentl@gmail.com"; // Ваш email
-    private static final String SENDER_PASSWORD = "6FluffyCarsRentProject20026!"; // Ваш пароль
+    private static final String SENDER_PASSWORD = "jylj cshr yyle soyf"; // Ваш пароль
 
     public static void sendVerificationCode(String recipientEmail, String verificationCode) throws MessagingException {
         // Настройка свойств почтового сервера
