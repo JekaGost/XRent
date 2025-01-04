@@ -3,6 +3,7 @@ package com.example.cars_rent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -17,6 +18,8 @@ public class LoginPageController {
     private TextField usernameField;
     @FXML
     private TextField passwordField;
+    @FXML
+    private Button login_anasayfa_button;
 
     private UserService userService = new UserService();
 
@@ -47,6 +50,12 @@ public class LoginPageController {
         } else {
             showAlert(Alert.AlertType.ERROR, "Hata", "Geçersiz kullanıcı adı veya şifre.");
         }
+    }
+
+    @FXML
+    private void onLoginAnasayfaButton() throws IOException {
+        Stage stage = (Stage) login_anasayfa_button.getScene().getWindow();
+        stage.close();
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {

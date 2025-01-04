@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,6 +28,8 @@ public class RegisterPageController {
     private TextField lastNameField;
     @FXML
     private TextField phoneNumberField;
+    @FXML
+    private Button register_anasayfa_button;
 
     private UserService userService = new UserService();
 
@@ -59,11 +62,8 @@ public class RegisterPageController {
 
     @FXML
     private void onRegisterAnasayfaButton() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Scene secondScene = new Scene(loader.load());
-
-        Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
-        stage.setScene(secondScene);
+        Stage stage = (Stage) register_anasayfa_button.getScene().getWindow();
+        stage.close();
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {
