@@ -41,8 +41,6 @@ public class CarDetailsController {
     private Button reserveButton;
     @FXML
     private Button backButton;
-    @FXML
-    private Button clearReservationButton;
 
 
     private Car currentCar;

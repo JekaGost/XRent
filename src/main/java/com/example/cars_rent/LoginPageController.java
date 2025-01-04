@@ -55,7 +55,7 @@ public class LoginPageController {
     }
 
     @FXML
-    private void onLoginAnasayfaButton() throws IOException {
+    private void onLoginAnasayfaButton() {
         Stage stage = (Stage) login_anasayfa_button.getScene().getWindow();
         stage.close();
     }
@@ -64,9 +64,7 @@ public class LoginPageController {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setContentText(content);
-        alert.setOnCloseRequest(event -> {
-            alert.close();
-        });
+        alert.setOnCloseRequest(_ -> alert.close());
         alert.showAndWait();
         }
     }

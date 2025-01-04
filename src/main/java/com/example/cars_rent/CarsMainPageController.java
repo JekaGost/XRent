@@ -29,7 +29,7 @@ public class CarsMainPageController {
             carButton.setPrefHeight(50);  // Увеличиваем размер кнопок
             carButton.setStyle("-fx-font-size: 14px; -fx-background-color: #f0f0f0;");
 
-            carButton.setOnAction(event -> openCarDetails(car));
+            carButton.setOnAction(_ -> openCarDetails(car));
             carListContainer.getChildren().add(carButton);
         });
     }
