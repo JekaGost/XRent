@@ -5,21 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class CarsMainPageController {
-
-    public class CarsMainPage {
-        public void start(Stage stage) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(RegisterPage.class.getResource("cars-main-page.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 880, 900);
-            stage.setTitle("Araçlar listesi");
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
 
     @FXML
     private VBox carListContainer;
@@ -48,6 +39,9 @@ public class CarsMainPageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("car-details.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Car Details");
+            stage.initModality(Modality.APPLICATION_MODAL);
+
 
             CarDetailsController controller = loader.getController();
             controller.setCarDetails(car);

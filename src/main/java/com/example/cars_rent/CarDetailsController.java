@@ -77,6 +77,7 @@ public class CarDetailsController {
         if (CarService.updateCarStatus(currentCar.getId(), newStatus)) {
             currentCar.setStatus(newStatus);
             setCarDetails(currentCar);
+            reserveButton.setText("Rezerve Yap");
         } else {
             // Вывести ошибку
         }
@@ -87,6 +88,11 @@ public class CarDetailsController {
         try {
             if (currentCar == null) {
                 showAlert("Hata", "Araç seçilmemiştir.", Alert.AlertType.ERROR);
+                return;
+            }
+
+            if (currentCar.isStatus() == false) {
+                showAlert("Hata", "Araç daha önce rezerve edilmiştir.", Alert.AlertType.ERROR);
                 return;
             }
 
@@ -114,6 +120,7 @@ public class CarDetailsController {
                     // Обновление статуса
                     currentCar.setStatus(false);
                     updateCarStatus();
+                    reserveButton.setText("Rezerve Edildi");
                 } else {
                     showAlert("Hata", "Geçersiz onay kodu.", Alert.AlertType.ERROR);
                 }
@@ -133,7 +140,6 @@ public class CarDetailsController {
     private void updateCarStatus() {
         statusLabel.setText("Durum: " + (currentCar.isStatus() ? "Serbest" : "Dolu"));
         statusIndicator.setFill(currentCar.isStatus() ? Color.GREEN : Color.RED);
-        reserveButton.setText(currentCar.isStatus() ? "Rezerve Yap" : "Rezerve Edildi");
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {

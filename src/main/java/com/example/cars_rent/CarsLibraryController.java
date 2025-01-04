@@ -39,16 +39,4 @@ public class CarsLibraryController {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private Button logOutButton;
-
-    @FXML
-    private void onLogOutButtonClıck() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Scene secondScene = new Scene(loader.load());
-
-        Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
-        stage.setScene(secondScene);
-    }
 }
