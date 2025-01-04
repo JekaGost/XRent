@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -33,6 +34,8 @@ public class CarsLibraryController {
             // Получаем контроллер новой сцены и передаем фильтр
             CarsMainPageController controller = loader.getController();
             controller.loadCars(onlyAvailable);
+            stage.setTitle("Cars Library");
+            stage.initModality(Modality.APPLICATION_MODAL);
 
             stage.show();
         } catch (IOException e) {
