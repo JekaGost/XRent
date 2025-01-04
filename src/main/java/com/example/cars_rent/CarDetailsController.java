@@ -133,7 +133,7 @@ public class CarDetailsController {
     private void updateCarStatus() {
         statusLabel.setText("Durum: " + (currentCar.isStatus() ? "Serbest" : "Dolu"));
         statusIndicator.setFill(currentCar.isStatus() ? Color.GREEN : Color.RED);
-        reserveButton.setText(currentCar.isStatus() ? "Rezerve Yap" : "İptal Et");
+        reserveButton.setText(currentCar.isStatus() ? "Rezerve Yap" : "Rezerve Edildi");
     }
 
     private void showAlert(String title, String message, Alert.AlertType alertType) {
