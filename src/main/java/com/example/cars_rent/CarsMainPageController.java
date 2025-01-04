@@ -25,7 +25,7 @@ public class CarsMainPageController {
 
         CarService.getCars(onlyAvailable).forEach(car -> {
             Button carButton = new Button(car.getBrand() + " " + car.getModel());
-            carButton.setPrefWidth(200);  // Увеличиваем размер кнопок
+            carButton.setPrefWidth(600);  // Увеличиваем размер кнопок
             carButton.setPrefHeight(50);  // Увеличиваем размер кнопок
             carButton.setStyle("-fx-font-size: 14px; -fx-background-color: #f0f0f0;");
 
