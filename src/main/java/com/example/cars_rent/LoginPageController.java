@@ -43,9 +43,11 @@ public class LoginPageController {
                     UserSession.isAdmin() ? "admin-main-menu.fxml" : "main-menu.fxml"
             ));
 
-            Scene nextScene = new Scene(loader.load(),940, 900);
+            Scene nextScene = new Scene(loader.load(), 940, 900);
             Stage stage = (Stage) Stage.getWindows().filtered(window -> window.isShowing()).get(0);
             stage.setScene(nextScene);
+
+            Stage.getWindows().getLast().hide();
 
         } else {
             showAlert(Alert.AlertType.ERROR, "Hata", "Geçersiz kullanıcı adı veya şifre.");
@@ -62,6 +64,9 @@ public class LoginPageController {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setContentText(content);
+        alert.setOnCloseRequest(event -> {
+            alert.close();
+        });
         alert.showAndWait();
         }
     }
