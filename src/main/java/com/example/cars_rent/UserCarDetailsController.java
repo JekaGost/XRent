@@ -47,29 +47,6 @@ public class UserCarDetailsController {
     private String generatedCode;
     /*private String userEmail = "user@example.com"; // Замените на текущий email пользователя*/
 
-    public void setCarDetails(Car car) {
-        this.currentCar = car;
-        carTitleLabel.setText(car.getBrand() + " " + car.getModel());
-        transmissionLabel.setText("Vites türü: " + car.getTransmission());
-        engineCapacityLabel.setText("Motor silindir hacmi: " + car.getEngineCapacity() + " L");
-        fuelTypeLabel.setText("Yakıt tipi: " + car.getFuelType());
-        horsepowerLabel.setText("Güç: " + car.getHorsepower() + " hp.");
-        driveTypeLabel.setText("Tahrik türü: " + car.getDriveType());
-        accelerationLabel.setText("100 km/s hıza çıkma: " + car.getAcceleration() + " s");
-        engineTypeLabel.setText("Motor türü: " + car.getEngineType());
-        fuelConsumptionLabel.setText("Yakıt tüketimi: " + car.getFuelConsumption() + " L/100 km");
-
-        if (car.getElectricRange() != null) {
-            electricRangeLabel.setText("Elektrikli sürüş menzili: " + car.getElectricRange() + " km");
-            electricRangeLabel.setVisible(true);
-        }
-
-        statusLabel.setText("Durum: " + (car.isStatus() ? "Serbest" : "Dolu"));
-        statusIndicator.setFill(car.isStatus() ? Color.GREEN : Color.RED);
-
-        reserveButton.setText(car.isStatus() ? "Rezerve Yap" : "İptal Et");
-    }
-
     @FXML
     public void onReserveButtonClick() {
         try {
