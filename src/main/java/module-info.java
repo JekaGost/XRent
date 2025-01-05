@@ -3,6 +3,7 @@ module com.example.cars_rent {
     requires javafx.fxml;
     requires java.sql;
     requires java.mail;
+    requires java.desktop;
 
 
     opens com.example.cars_rent to javafx.fxml;

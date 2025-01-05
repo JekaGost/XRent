@@ -28,7 +28,7 @@ public class MainMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
-            stage.setTitle("Profile");
+            stage.setTitle("Profil");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e) {
