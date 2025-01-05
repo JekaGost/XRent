@@ -16,6 +16,7 @@ public class AdminMainMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-library-page.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Admin Paneli");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/XRent_Icon.png")));
             stage.show();
