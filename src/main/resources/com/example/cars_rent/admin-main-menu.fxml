@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21.0.5" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.AdminMainMenuController">
+<AnchorPane prefHeight="400.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cars_rent.AdminMainMenuController">
    <children>
       <Button fx:id="AdminMenuButton" layoutX="64.0" layoutY="75.0" mnemonicParsing="false" onAction="#onAdminMenuButtonClick" prefHeight="189.0" prefWidth="179.0" text="Admin Menü" />
       <Button fx:id="ProfilAdminMenuButton" layoutX="259.0" layoutY="75.0" mnemonicParsing="false" onAction="#onProfilAdminMenuButton" prefHeight="189.0" prefWidth="179.0" text="Profil" />
