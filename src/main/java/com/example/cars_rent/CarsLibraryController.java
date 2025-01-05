@@ -32,7 +32,7 @@ public class CarsLibraryController {
             // Получаем контроллер новой сцены и передаем фильтр
             CarsMainPageController controller = loader.getController();
             controller.loadCars(onlyAvailable);
-            stage.setTitle("Araçların Listesi");
+            stage.setTitle("Araçlar Listesi");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/XRent_Icon.png")));
 

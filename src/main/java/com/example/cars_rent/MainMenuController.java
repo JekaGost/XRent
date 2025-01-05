@@ -3,6 +3,7 @@ package com.example.cars_rent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -15,8 +16,9 @@ public class MainMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("cars-main-page.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load()));
-            stage.setTitle("Cars Rent");
+            stage.setTitle("Araçlar Listesi");
             stage.initModality(Modality.APPLICATION_MODAL);
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/XRent_Icon.png")));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,6 +32,7 @@ public class MainMenuController {
             stage.setScene(new Scene(loader.load()));
             stage.setTitle("Profil");
             stage.initModality(Modality.APPLICATION_MODAL);
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/XRent_Icon.png")));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

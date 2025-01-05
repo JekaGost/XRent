@@ -56,7 +56,7 @@ public class CarService {
 
     public static void reserveCar(int carId, String userEmail) throws SQLException {
         if (userEmail == null || userEmail.isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be null or empty");
+            throw new IllegalArgumentException("E-posta boş veya geçersiz olamaz");
         }
 
         String updateQuery = "UPDATE cars SET status = 0, reserved_by = ? WHERE id = ?";
