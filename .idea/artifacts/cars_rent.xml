@@ -6,17 +6,9 @@
         <option name="appClass" value="com.example.cars_rent.MainPage" />
         <option name="description" value="The XRent application was created by Ievgenii Gostyshchev. The purpose of this app is to facilitate the process of renting cars. This application creates a personal account for users, with the help of which they can later reserve a car." />
         <option name="htmlPlaceholderId" value="" />
-        <option name="icons">
-          <JavaFxApplicationIcons>
-            <option name="linuxIcon" value="$PROJECT_DIR$/src/main/resources/XRent_Icon_V2.png" />
-            <option name="macIcon" value="$PROJECT_DIR$/src/main/resources/XRent_Logo2.icns" />
-            <option name="windowsIcon" value="$PROJECT_DIR$/src/main/resources/XRent_Logo2.ico" />
-          </JavaFxApplicationIcons>
-        </option>
-        <option name="paramFile" value="--module-path &quot;C:/dev/javafx-sdk-23.0.1/lib&quot; --add-modules javafx.controls,javafx.fxml" />
         <option name="title" value="XRent" />
         <option name="vendor" value="Ievgenii Gostyshchev" />
-        <option name="version" value="V1.0.0" />
+        <option name="version" value="1" />
       </options>
     </properties>
     <root id="root">
