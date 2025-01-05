@@ -62,7 +62,9 @@ public class ProfileController {
     @FXML
     private void editFirstName() {
         String newFirstName = PopupUtils.showInputDialog("Yeni isim giriniz:");
-        if (newFirstName != null) {
+        if (newFirstName == null || newFirstName.trim().isEmpty()) {
+            PopupUtils.showErrorDialog("İsim boş bırakılamaz."); // Предупреждение для пользователя
+        } else {
             UserService.updateUserField(UserSession.getUserId(), "first_name", newFirstName);
             loadUserData();
         }
@@ -71,7 +73,9 @@ public class ProfileController {
     @FXML
     private void editLastName() {
         String newLastName = PopupUtils.showInputDialog("Yeni soyadı giriniz:");
-        if (newLastName != null) {
+        if (newLastName == null || newLastName.trim().isEmpty()) {
+            PopupUtils.showErrorDialog("Soyadı boş bırakılamaz.");
+        } else {
             UserService.updateUserField(UserSession.getUserId(), "last_name", newLastName);
             loadUserData();
         }
@@ -80,7 +84,9 @@ public class ProfileController {
     @FXML
     private void editEmail() {
         String newEmail = PopupUtils.showInputDialog("Yeni E-postayı giriniz:");
-        if (newEmail != null) {
+        if (newEmail == null || newEmail.trim().isEmpty()) {
+            PopupUtils.showErrorDialog("E-posta boş bırakılamaz.");
+        } else {
             UserService.updateUserField(UserSession.getUserId(), "email", newEmail);
             loadUserData();
         }
@@ -89,7 +95,9 @@ public class ProfileController {
     @FXML
     private void editPhoneNumber() {
         String newPhoneNumber = PopupUtils.showInputDialog("Yeni telefon numarasını giriniz:");
-        if (newPhoneNumber != null) {
+        if (newPhoneNumber == null || newPhoneNumber.trim().isEmpty()) {
+            PopupUtils.showErrorDialog("Telefon numarası boş bırakılamaz.");
+        } else {
             UserService.updateUserField(UserSession.getUserId(), "phone_number", newPhoneNumber);
             loadUserData();
         }
