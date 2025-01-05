@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Main-Class: com.example.cars_rent.MainPage
+Class-Path: javafx-base-21-win.jar javafx-controls-21.jar javafx-graphic
+ s-21.jar javafx-controls-21-win.jar javafx-swt.jar javafx.base.jar java
+ fx.controls.jar javafx.fxml.jar javafx.graphics.jar javafx.media.jar ja
+ vafx.swing.jar javafx.web.jar javafx-fxml-21-win.jar javafx-base-21.jar
+  javafx-graphics-21-win.jar mysql-connector-j-9.1.0.jar javax.mail-1.6.
+ 2.jar activation-1.1.jar javafx-fxml-21.jar
+

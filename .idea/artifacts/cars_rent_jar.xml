@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact name="cars_rent:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/cars_rent_jar</output-path>
+    <root id="root">
+      <element id="archive" name="cars_rent.jar">
+        <element id="module-output" name="cars_rent" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:21" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:21" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:21" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:21" />
+      <element id="library" level="project" name="javafx-swt.jar" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:21" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:21" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:21" />
+      <element id="library" level="project" name="mysql-connector-j-9.1.0" />
+      <element id="library" level="project" name="sun.mail.javax" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:21" />
+    </root>
+  </artifact>
+</component>
